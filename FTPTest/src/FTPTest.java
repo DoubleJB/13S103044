@@ -21,7 +21,25 @@ public class FTPTest {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		new FTPTest();
+		new Thread()
+		{
+			public void run() {
+				int port=8080;
+				new HTTPServer().start(port);
+			}
+		}.start();
+		new Thread()
+		{
+			public void run() {
+				new FTPTest();
+			}
+		}.start();
+		new Thread()
+		{
+			public void run() {
+				new FTPUDPServer();
+			}
+		}.start();
 	}
 
 	public FTPTest() {

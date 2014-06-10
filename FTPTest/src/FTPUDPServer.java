@@ -94,6 +94,7 @@ public class FTPUDPServer {
 			sendPort = reciPacket.getPort();
 			addr = reciPacket.getAddress();
 			port = getPort();
+			System.out.println(port);
 			try {
 				server = new DatagramSocket(port);
 			} catch (SocketException e) {
@@ -243,7 +244,7 @@ public class FTPUDPServer {
 		  
 		        try {  
 		            // 第二个为测试本机IP,测试其它机器,则构建一个InetAddress对象  
-		            s = new DatagramSocket(MINPORT, InetAddress.getLocalHost());  
+		            s = new DatagramSocket(MINPORT);  
 		            s.close();  
 		            return MINPORT;  
 		        } catch (IOException e) {  
